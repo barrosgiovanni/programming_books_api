@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FreeProgrammingBooksApi</title>
+    <title>Free Programming Books</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,13 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="page-container">
+      <%= render "shared/navbar" %>
+      <main id="main-content">
+        <%= yield %>
+      </main>
+      <%# <%= render "shared/flashes" %>
+      <%= render "shared/footer" %>
+    </div>
   </body>
 </html>
