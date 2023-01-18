@@ -4,5 +4,5 @@ class Review < ApplicationRecord
 
   validates :score, :content, presence: true
   validates :score, numericality: { in: 1..5 }
-  validates :content, length: { in: 10..200 }
+  validates :content, length: { minimum: 10 }
 end

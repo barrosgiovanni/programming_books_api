@@ -79,3 +79,7 @@ end
 gem "devise"
 
 gem "pundit"
+
+gem 'rest-client'
+
+gem 'faker'
