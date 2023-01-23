@@ -1,4 +1,5 @@
 class Api::V1::BooksController < Api::V1::BaseController
+  acts_as_token_authentication_handler_for User, except: [ :index, :show ]
   before_action :set_book, only: %i[show update]
 
   def index
