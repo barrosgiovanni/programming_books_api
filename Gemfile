@@ -77,9 +77,7 @@ group :test do
 end
 
 gem "devise"
-
 gem "pundit"
-
 gem 'rest-client'
-
 gem 'faker'
+gem 'simple_token_authentication'
