@@ -13,4 +13,8 @@ class BookPolicy < ApplicationPolicy
   def update?
     record.user == user
   end
+
+  def create?
+    !user.nil?
+  end
 end
