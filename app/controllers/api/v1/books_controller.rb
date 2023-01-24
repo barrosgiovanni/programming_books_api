@@ -1,6 +1,6 @@
 class Api::V1::BooksController < Api::V1::BaseController
   acts_as_token_authentication_handler_for User, except: [ :index, :show ]
-  before_action :set_book, only: %i[show update]
+  before_action :set_book, only: %i[show update destroy]
 
   def index
     @books = policy_scope(Book)
@@ -23,12 +23,17 @@ class Api::V1::BooksController < Api::V1::BaseController
     @book.user = current_user
     authorize @book
     if @book.save
-      render:show
+      render :show, status: :created
     else
       render_error
     end
-
   end
+
+  def destroy
+    @book.destroy
+    head :no_content
+  end
+
   private
 
   def set_book
