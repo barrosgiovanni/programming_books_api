@@ -18,6 +18,17 @@ class Api::V1::BooksController < Api::V1::BaseController
     end
   end
 
+  def create
+    Book.new(book_params)
+    @book.user = current_user
+    authorize @book
+    if @book.save
+      render:show
+    else
+      render_error
+    end
+
+  end
   private
 
   def set_book
